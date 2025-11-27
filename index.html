@@ -4,41 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     
-    <!-- ====== SEO UTAMA ====== -->
     <title>Suzuki Tangerang | Dealer Resmi - Promo 2025</title>
     <meta name="description" content="Dealer Resmi Suzuki Gading Serpong. Promo Ertiga Hybrid, XL7, Jimny 5 pintu, Grand Vitara, Carry Pick Up 2025. DP Ringan mulai 5 Jutaan + Test Drive Gratis!" />
     
-    <!-- Open Graph (penting untuk share WA/FB) -->
     <meta property="og:title" content="Suzuki Tangerang - Promo Terbaru 2025 DP Ringan" />
     <meta property="og:description" content="Dealer Suzuki resmi di Tangerang & BSD. Dapatkan penawaran terbaik Ertiga, XL7, Jimny, Carry Pick Up. Hubungi Vira: 0812-8615-6361" />
     <meta property="og:image" content="https://dekuwimasnto.github.io/suzuki-tangerang/assets/img/promo-2025.jpg" />
     <meta property="og:url" content="https://dekuwimasnto.github.io/suzuki-tangerang/" />
     <meta property="og:type" content="website" />
 
-    <!-- Keyword (meski tidak terlalu berpengaruh lagi, tetap ada baiknya) -->
     <meta name="keywords" content="suzuki tangerang, dealer suzuki tangerang, promo suzuki 2025, suzuki gading serpong, suzuki bsd, ertiga hybrid tangerang, xl7 tangerang, jimny tangerang, carry pickup murah" />
 
-    <!-- Geo Location (sangat penting untuk SEO lokal) -->
     <meta name="geo.region" content="ID-BTN" />
     <meta name="geo.placename" content="Tangerang, Banten" />
     <meta name="geo.position" content="-6.248887;106.623416" />
     <meta name="ICBM" content="-6.248887, 106.623416" />
 
-    <!-- Canonical URL (wajib di GitHub Pages) -->
     <link rel="canonical" href="https://dekuwimasnto.github.io/suzuki-tangerang/" />
     <meta name="robots" content="index, follow">
 
-    <!-- Favicon -->
-    <!-- FAVICON – GANTI INI SUPAYA LOGO SUZUKI MUNCUL DI TAB BROWSER -->
     <link rel="icon" href="assets/img/favicon.png" type="image/png">
     <link rel="apple-touch-icon" href="assets/img/favicon.png">
-    <!-- Untuk browser lama (opsional tapi bagus) -->
     <link rel="shortcut icon" href="assets/img/favicon.png" type="image/png">
 
-    <!-- Google Site Verification (opsional, nanti kalau sudah daftar Search Console) -->
     <meta name="google-site-verification" content="72d93d699e716ed8" />
 
-    <!-- Font & Icon (tetap) -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
@@ -156,7 +146,6 @@
             font-size: 0.95rem;
         }
 
-        /* Header tetap fixed tapi logo & menu tidak saling tindih */
         .nav {
             flex-wrap: wrap;
             padding: 0 10px;
@@ -190,7 +179,6 @@
             font-size: 0.9rem;
         }
 
-        /* Kartu promo tetap 1 kolom, tapi gambar tidak terlalu tinggi */
         .promo__grid {
             gap: 24px;
         }
@@ -220,7 +208,6 @@
             font-size: 2.6rem;
         }
 
-        /* Popup promo & trigger di HP */
         .promo-popup,
         .promo-trigger {
             width: 92vw;
@@ -247,7 +234,6 @@
         }
     }
 
-    /* Pastikan header tidak menutupi konten saat pakai anchor link */
     section {
         scroll-margin-top: 90px;
     }
@@ -453,20 +439,58 @@
         }
 
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                if (this.getAttribute('href') !== '#') {
-                    e.preventDefault();
-                    const target = this.getAttribute('href');
-                    smoothScroll(target);
-                    
-                    // Update active menu
-                    document.querySelectorAll('.nav__link').forEach(link => {
-                        link.classList.remove('active');
-                    });
-                    this.classList.add('active');
-                }
-            });
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            
+            if (href === '#' || href === '') return;
+
+            e.preventDefault();
+
+            const targetElement = document.querySelector(href);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+
+                history.pushState(null, null, href);
+
+                document.querySelectorAll('.nav__link').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+            }
         });
+    });
+
+    window.addEventListener('load', function () {
+        const hash = window.location.hash || '#home';
+        const target = document.querySelector(hash);
+        if (target) {
+            setTimeout(() => {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        }
+        document.querySelectorAll('.nav__link').forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === hash) {
+                link.classList.add('active');
+            }
+        });
+    });
+    window.addEventListener('popstate', function () {
+        const hash = window.location.hash || '#home';
+        const target = document.querySelector(hash);
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+        }
+        document.querySelectorAll('.nav__link').forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === hash) {
+                link.classList.add('active');
+            }
+        });
+    });
     </script>
     <script type="application/ld+json">
     {
@@ -508,16 +532,3 @@
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
