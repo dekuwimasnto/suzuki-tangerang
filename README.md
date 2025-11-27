@@ -9,7 +9,7 @@ Ertiga Hybrid, XL7 Hybrid, All New Jimny 5 Pintu, Grand Vitara, Fronx, S-Presso,
 
 **Test Drive Gratis + Promo Akhir Tahun 2025 Berlaku!**
 
-[🌐 Buka Website Resmi (GitHub Pages)](https://dekuwimasnto.github.io/suzuki-tangerang/)  
+[🌐 Buka Website Resmi (GitHub Pages)](https://dekuwimasnto.github.io/suzukitangerang/)  
 [📞 Hubungi Vira via WhatsApp Sekarang](https://wa.me/6281286156361?text=Halo%20Kak%20Vira%2C%20saya%20mau%20info%20promo%20Suzuki%20Tangerang%202025)
 
 ## Promo Spesial Suzuki Tangerang November–Desember 2025
